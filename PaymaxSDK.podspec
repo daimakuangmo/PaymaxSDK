@@ -14,10 +14,10 @@ Pod::Spec.new do |s|
   s.author       = {'wangxiaoqiang' => 'codeingwang@163.com'}
 
   s.ios.deployment_target = '8.1'
-  s.source       = {:git => 'https://github.com/daimakuangmo/PaymaxSDK.git', :tag => s.version , :commit => "a172100c852fd517f74788d88f633de2ab76c30e"}
+  s.source       = {:git => 'https://github.com/daimakuangmo/PaymaxSDK.git', :tag => s.version}
   s.requires_arc = true
   s.default_subspec = 'Paymax', 'Alipay', 'LKL'
-  s.dependency 'SDWebImage'
+  s.dependency 'WechatOpenSDK'
 
 
   s.subspec 'Paymax' do |paymax|
@@ -38,7 +38,8 @@ Pod::Spec.new do |s|
 
   s.subspec 'LKL' do|lkl|
     lkl.source_files = 'PaymaxSDK/Paymax+lkl/lkl/*.h'
-    lkl.vendored_libraries = 'PaymaxSDK/Paymax+lkl/*.a' , 'PaymaxSDK/Paymax+lkl/lkl/*.a'
+    lkl.vendored_libraries = 'PaymaxSDK/Paymax+lkl/*.a' 
+    lkl.vendored_libraries = 'PaymaxSDK/Paymax+lkl/lkl/*.a'
     lkl.resource = 'PaymaxSDK/Paymax+lkl/lkl/LKLImages.bundle'
     lkl.dependency 'PaymaxSDK/Paymax'
   end
