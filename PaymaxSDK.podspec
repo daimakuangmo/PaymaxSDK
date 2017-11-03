@@ -22,31 +22,29 @@ Pod::Spec.new do |s|
     paymax.source_files = 'PaymaxSDK/*.{h,m}'
     paymax.public_header_files = 'PaymaxSDK/*.h'
     paymax.vendored_libraries = 'PaymaxSDK/*.a'
-    paymax.frameworks = 'CFNetwork', 'SystemConfiguration', 'Security', 'CoreLocation'
+    paymax.frameworks = 'CFNetwork', 'SystemConfiguration', 'Security', 'CoreLocation','CoreMotion', 'CoreTelephony'
     paymax.ios.library = 'c++', 'stdc++' , 'z'
     paymax.xcconfig = { 'OTHER_LDFLAGS' => '-ObjC' }
   end
 
   s.subspec 'Alipay' do|alipay|
-    alipay.source_files = 'PaymaxSDK/Paymax+alipay/Alipay/*.{h,m}'
     alipay.vendored_libraries = 'PaymaxSDK/Paymax+alipay/*.a'
     alipay.ios.vendored_frameworks = 'PaymaxSDK/Paymax+alipay/Alipay/*.framework'
     alipay.resource = 'PaymaxSDK/Paymax+alipay/Alipay/*.bundle'
-    alipay.frameworks = 'CoreMotion', 'CoreTelephony'
-    alipay.dependency 'Paymaxpod1/Paymax'
+    alipay.dependency 'PaymaxSDK/Paymax'
   end
 
   s.subspec 'WX' do|wx|
-    wx.source_files = 'PaymaxSDK/Paymax+wx/WX/*.{h,m}'
+    wx.source_files = 'PaymaxSDK/Paymax+wx/WX/*.h'
     wx.vendored_libraries = 'PaymaxSDK/Paymax+wx/*.a' , 'PaymaxSDK/Paymax+wx/WX/*.a'
-    wx.dependency 'Paymaxpod1/Paymax'
+    wx.dependency 'PaymaxSDK/Paymax'
   end
 
   s.subspec 'LKL' do|lkl|
     lkl.source_files = 'PaymaxSDK/Paymax+lkl/lkl/*.{h,m}'
     lkl.vendored_libraries = 'PaymaxSDK/Paymax+lkl/*.a' , 'PaymaxSDK/Paymax+lkl/lkl/*.a'
     lkl.resource = 'PaymaxSDK/Paymax+lkl/lkl/*.bundle'
-    lkl.dependency 'Paymaxpod1/Paymax'
+    lkl.dependency 'PaymaxSDK/Paymax'
   end
 
 
