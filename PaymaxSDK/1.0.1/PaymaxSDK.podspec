@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
   s.source       = {:git => 'https://github.com/daimakuangmo/PaymaxSDK.git', :tag => s.version}
   s.requires_arc = true
   s.default_subspec = 'Paymax', 'Alipay', 'LKL'
-  s.dependency 'WechatOpenSDK'
+  # s.dependency 'WechatOpenSDK'
 
 
   s.subspec 'Paymax' do |paymax|
